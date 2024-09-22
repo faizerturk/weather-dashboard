@@ -1,20 +1,8 @@
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
-import { MantineProvider } from '@mantine/core';
+import 'react-toastify/dist/ReactToastify.css';
+import type { Metadata } from 'next';
 import StyledComponentsRegistry from './registry';
-import { theme } from '@/theme';
-
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
+import { ToastContainer } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: 'Weather Dashboard',
@@ -28,14 +16,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <MantineProvider
-          theme={theme}
-          defaultColorScheme={'light'}
-          forceColorScheme='light'
-        >
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </MantineProvider>
+      <body>
+        <ToastContainer
+          position='top-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
