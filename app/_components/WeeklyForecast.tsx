@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { WeeklyForecastProps, ForecastData } from '../../types/type';
 import { weatherIconMap } from '../../icons/WeatherIcons';
 import { IconType } from 'react-icons';
+import { formatTemperature } from '@/utils/formatTemperature';
 
 const WeeklyForecast: React.FC<WeeklyForecastProps> = ({
   forecastData,
@@ -21,8 +22,8 @@ const WeeklyForecast: React.FC<WeeklyForecastProps> = ({
       <ForecastContainer>
         {dailyData.map((day: ForecastData, index: number) => {
           const date = new Date(day.dt * 1000);
-          const tempC = (day.main.temp - 273.15).toFixed(2);
-          const tempF = ((day.main.temp - 273.15) * 1.8 + 32).toFixed(2);
+          const tempC = formatTemperature(day.main.temp, true);
+          const tempF = formatTemperature(day.main.temp, false);
 
           const condition = day.weather[0].main;
           const description = day.weather[0].description;

@@ -4,32 +4,6 @@ import styled from 'styled-components';
 import { AirConditionsProps } from '../../types/type';
 import { IconWind, IconDroplet, IconTemperature } from '@tabler/icons-react';
 
-const Section = styled.div`
-  background-color: #132e54;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 400px;
-  margin: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-`;
-
-const Condition = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-`;
-
 const AirConditions: React.FC<AirConditionsProps> = ({
   weatherData,
   isCelsius,
@@ -73,3 +47,29 @@ const AirConditions: React.FC<AirConditionsProps> = ({
 };
 
 export default AirConditions;
+
+const Section = styled.div`
+  background-color: #132e54;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+`;
+
+const Condition = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+`;
